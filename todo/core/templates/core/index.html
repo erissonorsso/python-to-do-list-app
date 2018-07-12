@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <div class="row">
+    <h1>Lista de Tarefas</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tarefa</th>
+          <th>Descriçao</th>
+          <th>Data final</th>
+          <th>Prioridade</th>
+          <th>Categoria</th>
+          <th colspan="2" style="text-align:center">Açoes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in tarefas %}
+          <tr>
+            <td>{{ t.nome }}</td>
+            <td>{{ t.descricao }}</td>
+            <td>{{ t.data_final }}</td>
+            <td>{{ t.get_prioridade_display }}</td>
+            <td>{{ t.categoria }}</td>
+            <td><a href="#" class="btn btn-info btn-xs">Editar</a></td>
+            <td><a href="#" class="btn btn-danger btn-xs">Excluir</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/tarefas/nova-tarefa" class="btn btn-default" role="button">Adicionar Tarefa</a>
+  </div>
+{% endblock body %}

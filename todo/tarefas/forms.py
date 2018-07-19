@@ -7,7 +7,7 @@ class CategoriaForm(forms.ModelForm):
     descricao = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
     class Meta:
         model = Categoria
-        fields = '__all__'
+        exclude = ('user',)
 
 class TarefaForm(forms.ModelForm):
     class Meta:

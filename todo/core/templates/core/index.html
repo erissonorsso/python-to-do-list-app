@@ -3,6 +3,14 @@
 {% block body %}
   <div class="row">
     <h1>Lista de Tarefas</h1>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-danger" role="danger">
+          {{ message }}
+        </div>
+      {% endfor message %}
+    {% endif messages %}
+    {% if tarefas %}
     <table class="table">
       <thead>
         <tr>
@@ -28,6 +36,11 @@
         {% endfor %}
       </tbody>
     </table>
+    {% else %}
+      <div class="alert alert-info" role="info">
+        <p>Nao ha tarefas disponiveis!</p>
+      </div>
+    {% endif tarefas %}
     <a href="/tarefas/nova-tarefa" class="btn btn-default" role="button">Adicionar Tarefa</a>
   </div>
 {% endblock body %}
